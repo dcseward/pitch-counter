@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.pitchcounter.CountPitchesActivity">
+
+    <Spinner
+        android:id="@+id/spinner_UpDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:entries="@array/up_down"
+        android:layout_marginTop="37dp"/>
+
+    <TextView
+        android:id="@+id/textView_Ball"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ball"
+        android:layout_alignLeft="@+id/spinner_UpDown"
+        android:layout_below="@+id/spinner_UpDown"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <TextView
+        android:id="@+id/textView_Ball4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ball4"
+        android:layout_alignLeft="@+id/button_Ball4"
+        android:layout_below="@+id/spinner_UpDown"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <TextView
+        android:id="@+id/textView_HitByPitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HitByPitch"
+        android:layout_alignLeft="@+id/button_HitByPitch"
+        android:layout_below="@+id/spinner_UpDown"
+        tools:layout_editor_absoluteX="186dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <Button
+        android:id="@+id/button_Ball"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ball"
+        android:layout_alignLeft="@+id/spinner_UpDown"
+        android:layout_below="@+id/textView_Ball"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="59dp"
+        android:onClick="onClickBall"/>
+
+    <Button
+        android:id="@+id/button_Ball4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ball4"
+        android:layout_below="@+id/textView_Ball"
+        android:layout_toRightOf="@+id/button_Ball"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="59dp"
+        android:onClick="onClickBall4"/>
+
+    <Button
+        android:id="@+id/button_HitByPitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HBP"
+        android:layout_below="@+id/textView_Ball"
+        android:layout_toRightOf="@+id/button_Ball4"
+        tools:layout_editor_absoluteX="186dp"
+        tools:layout_editor_absoluteY="59dp"
+        android:onClick="onClickHitByPitch"/>
+
+    <TextView
+        android:id="@+id/textView_StrikeSwinging"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Strike Swing"
+        android:layout_alignLeft="@+id/spinner_UpDown"
+        android:layout_below="@+id/button_Ball"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="125dp" />
+
+    <TextView
+        android:id="@+id/textView_StrikeLooking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Strike Look"
+        android:layout_alignLeft="@+id/button_Ball4"
+        android:layout_below="@id/button_Ball4"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="125dp" />
+
+    <TextView
+        android:id="@+id/textView_Foul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Foul"
+        android:layout_alignLeft="@+id/button_HitByPitch"
+        android:layout_below="@id/button_HitByPitch"
+        tools:layout_editor_absoluteX="186dp"
+        tools:layout_editor_absoluteY="125dp" />
+
+    <Button
+        android:id="@+id/button_StrikeSwing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Swinging"
+        android:layout_alignLeft="@id/textView_StrikeSwinging"
+        android:layout_below="@id/textView_StrikeSwinging"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="152dp"
+        android:onClick="onClickStrikeSwing"/>
+
+
+    <Button
+        android:id="@+id/button_StrikeLooking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Looking"
+        android:layout_alignLeft="@id/textView_StrikeLooking"
+        android:layout_below="@id/textView_StrikeLooking"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="241dp"
+        android:onClick="onClickStrikeLook"/>
+
+    <Button
+        android:id="@+id/button_StrikeFoul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Foul"
+        android:layout_alignLeft="@id/textView_Foul"
+        android:layout_below="@id/textView_Foul"
+        tools:layout_editor_absoluteX="186dp"
+        tools:layout_editor_absoluteY="152dp"
+        android:onClick="onClickStrikeFoul"/>
+
+    <TextView
+        android:id="@+id/textView_StrikeOutSwinging"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="K Swing"
+        android:layout_alignLeft="@+id/button_StrikeSwing"
+        android:layout_below="@+id/button_StrikeSwing"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="210dp" />
+
+    <TextView
+        android:id="@+id/textView_StrikeOutLooking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="K Looking"
+        android:layout_alignLeft="@+id/button_StrikeLooking"
+        android:layout_below="@+id/button_StrikeLooking"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="210dp" />
+
+    <Button
+        android:id="@+id/button_StrikeOutSwinging"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="K Swing"
+        android:layout_alignLeft="@+id/textView_StrikeOutSwinging"
+        android:layout_below="@+id/textView_StrikeOutSwinging"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="241dp"
+        android:onClick="onClickStrikeOutSwinging"/>
+
+    <Button
+        android:id="@+id/button_StrikeOutLooking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="K Look"
+        android:layout_alignLeft="@+id/textView_StrikeOutLooking"
+        android:layout_below="@+id/textView_StrikeOutLooking"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="152dp"
+        android:onClick="onClickStrikeOutLooking"/>
+
+    <TextView
+        android:id="@+id/textView_OutFly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fly Out"
+        android:layout_alignLeft="@+id/button_StrikeOutSwinging"
+        android:layout_below="@+id/button_StrikeOutSwinging"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="302dp" />
+
+    <TextView
+        android:id="@+id/textView_OutGround"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ground Out"
+        android:layout_alignLeft="@+id/button_StrikeOutLooking"
+        android:layout_below="@+id/button_StrikeOutLooking"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="302dp" />
+
+    <TextView
+        android:id="@+id/textView_Error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Error"
+        android:layout_alignLeft="@+id/button_StrikeFoul"
+        android:layout_below="@+id/button_StrikeOutLooking"
+        tools:layout_editor_absoluteX="177dp"
+        tools:layout_editor_absoluteY="302dp" />
+
+    <TextView
+        android:id="@+id/textView_Hit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hit"
+        android:layout_toRightOf="@+id/button_StrikeFoul"
+        android:layout_below="@+id/button_StrikeOutLooking"
+        tools:layout_editor_absoluteX="268dp"
+        tools:layout_editor_absoluteY="302dp" />
+
+    <Button
+        android:id="@+id/button_OutFly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fly"
+        android:layout_alignLeft="@+id/textView_OutFly"
+        android:layout_below="@+id/textView_OutFly"
+        tools:layout_editor_absoluteY="336dp"
+        tools:layout_editor_absoluteX="5dp"
+        android:onClick="onClickOutFly"/>
+
+    <Button
+        android:id="@+id/button_OutGround"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ground"
+        tools:layout_editor_absoluteY="336dp"
+        tools:layout_editor_absoluteX="93dp"
+        android:onClick="onClickOutGround"
+        android:layout_alignBaseline="@+id/button_Error"
+        android:layout_alignBottom="@+id/button_Error"
+        android:layout_toEndOf="@+id/button_OutFly" />
+
+
+    <Button
+        android:id="@+id/button_PlusOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView_InningOuts"
+        android:layout_toEndOf="@+id/button_Undo"
+        android:onClick="onClickPlusOut"
+        android:text="+Out"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="336dp" />
+
+    <Button
+        android:id="@+id/button_Error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Error"
+        android:layout_alignLeft="@+id/textView_Error"
+        android:layout_below="@+id/textView_Error"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="336dp"
+        android:onClick="onClickError"/>
+
+    <Button
+        android:id="@+id/button_Hit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hit"
+        android:layout_alignLeft="@+id/textView_Hit"
+        android:layout_below="@+id/textView_Hit"
+        tools:layout_editor_absoluteY="336dp"
+        tools:layout_editor_absoluteX="268dp"
+        android:onClick="onClickHit"/>
+
+    <TextView
+        android:id="@+id/textView_Clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:layout_alignLeft="@+id/button_OutFly"
+        android:layout_below="@+id/button_OutFly"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="159dp" />
+
+    <Button
+        android:id="@+id/button_Undo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Undo"
+        tools:layout_editor_absoluteY="336dp"
+        tools:layout_editor_absoluteX="268dp"
+        android:onClick="onClickUndo"
+        android:layout_alignBaseline="@+id/button_Clear"
+        android:layout_alignBottom="@+id/button_Clear"
+        android:layout_toEndOf="@+id/button_StrikeSwing" />
+
+    <Button
+        android:id="@+id/button_Clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_Clear"
+        android:layout_below="@+id/textView_Clear"
+        android:onClick="onClickClear"
+        android:text="Clear"
+        tools:layout_editor_absoluteX="268dp"
+        tools:layout_editor_absoluteY="336dp" />
+
+    <TextView
+        android:id="@+id/textView_TotalBalls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TotalBalls"
+        android:layout_toRightOf="@+id/button_HitByPitch"
+        android:layout_below="@+id/spinner_UpDown"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="159dp" />
+
+    <TextView
+        android:id="@+id/textView_TotalBallsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TotalBallsValue"
+        android:layout_toRightOf="@+id/button_HitByPitch"
+        android:layout_below="@+id/textView_TotalBalls"
+        tools:layout_editor_absoluteY="183dp"
+        tools:layout_editor_absoluteX="286dp" />
+
+    <TextView
+        android:id="@+id/textView_TotalStrikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TotalStrikes"
+        android:layout_toRightOf="@+id/button_HitByPitch"
+        android:layout_below="@+id/button_HitByPitch"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="59dp" />
+
+    <TextView
+        android:id="@+id/textView_TotalStrikesValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TotalStrikesValue"
+        android:layout_below="@+id/textView_TotalStrikes"
+        android:layout_alignLeft="@+id/textView_TotalStrikes"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="90dp" />
+
+    <TextView
+        android:id="@+id/textView_TotalPitches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Pitches"
+        android:layout_toRightOf="@+id/button_HitByPitch"
+        android:layout_below="@+id/button_StrikeFoul"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="247dp" />
+
+    <TextView
+        android:id="@+id/textView_TotalPitchesValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TotalPitchesValue"
+        android:layout_toRightOf="@+id/button_HitByPitch"
+        android:layout_below="@+id/textView_TotalPitches"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="272dp" />
+
+    <TextView
+        android:id="@+id/textView_BatterBalls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Batter Balls"
+        android:layout_alignLeft="@+id/button_Clear"
+        android:layout_below="@+id/button_Clear"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="272dp" />
+
+    <TextView
+        android:id="@+id/textView_BatterBallsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Balls"
+        android:layout_alignLeft="@+id/button_Clear"
+        android:layout_below="@+id/textView_BatterBalls"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="272dp" />
+
+    <TextView
+        android:id="@+id/textView_BatterStrikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Batter Strikes"
+        android:layout_alignLeft="@+id/button_OutGround"
+        android:layout_below="@+id/button_Clear"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="272dp" />
+
+    <TextView
+        android:id="@+id/textView_BatterStrikesValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Strikes"
+        android:layout_alignLeft="@+id/textView_BatterStrikes"
+        android:layout_below="@+id/textView_BatterStrikes"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="272dp" />
+
+    <TextView
+        android:id="@+id/textView_InningOuts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inning Outs"
+        android:layout_alignLeft="@+id/button_Error"
+        android:layout_below="@+id/button_Clear"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="272dp" />
+
+    <TextView
+        android:id="@+id/textView_InningOutsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Outs"
+        android:layout_alignLeft="@+id/textView_InningOuts"
+        android:layout_below="@+id/textView_BatterStrikes"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="272dp" />
+
+    <TextView
+        android:id="@+id/textView_Inning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inning"
+        android:layout_alignLeft="@+id/button_Hit"
+        android:layout_below="@+id/button_Clear"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="272dp" />
+
+    <TextView
+        android:id="@+id/textView_InningValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inning"
+        android:layout_alignLeft="@+id/textView_Inning"
+        android:layout_below="@+id/textView_BatterStrikes"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="272dp" />
+
+    <TextView
+        android:id="@+id/textView_Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Us"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="272dp"
+        android:layout_below="@+id/textView_BatterBallsValue"
+        android:layout_alignEnd="@+id/textView_Ball"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView_Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Them"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="272dp"
+        android:layout_below="@+id/textView_BatterStrikesValue"
+        android:layout_toEndOf="@+id/button_ScoreUs" />
+
+    <Button
+        android:id="@+id/button_ScoreUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickScoreUs"
+        android:text="Us"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="336dp"
+        android:layout_below="@+id/textView_Us"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/button_ScoreThem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickScoreThem"
+        android:text="Them"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="336dp"
+        android:layout_below="@+id/textView_Them"
+        android:layout_alignStart="@+id/textView_Them" />
+
+
+
+</RelativeLayout>
